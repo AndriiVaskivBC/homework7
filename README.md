@@ -270,9 +270,3 @@ Password:
 * GitHub repository
 * Postman testing
 
----
-
-# Author
-
-Andrii Vaskiv
-Brooklyn College – CISC 3130
