@@ -8,30 +8,40 @@ import edu.brooklyn.cisc3130.taskboard.repository.TaskRepository;
 
 @Component
 public class DataInitializer implements CommandLineRunner {
-    
+
     private final TaskRepository taskRepository;
-    
+
     public DataInitializer(TaskRepository taskRepository) {
         this.taskRepository = taskRepository;
     }
-    
+
     @Override
     public void run(String... args) {
         if (taskRepository.count() == 0) {
-            taskRepository.save(new Task(
-                null, "Complete Homework 6", 
-                "Finish Spring Data JPA assignment", 
-                false, Task.Priority.HIGH, null, null));
-            
-            taskRepository.save(new Task(
-                null, "Study for Midterm", 
-                "Review chapters 1-5", 
-                false, Task.Priority.HIGH, null, null));
-            
-            taskRepository.save(new Task(
-                null, "Buy groceries", 
-                "Milk, eggs, bread", 
-                true, Task.Priority.LOW, null, null));
+
+            Task task1 = new Task();
+            task1.setTitle("Complete Homework 7");
+            task1.setDescription("Finish Data Structures assignment");
+            task1.setCompleted(false);
+            task1.setPriority(Task.Priority.HIGH);
+            task1.setDeleted(false);
+            taskRepository.save(task1);
+
+            Task task2 = new Task();
+            task2.setTitle("Study for Midterm");
+            task2.setDescription("Review chapters 1-5");
+            task2.setCompleted(false);
+            task2.setPriority(Task.Priority.HIGH);
+            task2.setDeleted(false);
+            taskRepository.save(task2);
+
+            Task task3 = new Task();
+            task3.setTitle("Buy groceries");
+            task3.setDescription("Milk, eggs, bread");
+            task3.setCompleted(true);
+            task3.setPriority(Task.Priority.LOW);
+            task3.setDeleted(false);
+            taskRepository.save(task3);
         }
     }
 }
